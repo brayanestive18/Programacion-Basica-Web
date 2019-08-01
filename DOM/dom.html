@@ -6,10 +6,43 @@
   <body>
     <h1>Vamos A Dibujar</h1>
     <p>
-      Cuantas lineas quieres:
-      <input type="text" id="txt_number_lines"/>
+      Que dibujo quieres:
       <br />
-      <input type="button" id="button_draw" value="Dibujar">
+      <span>
+        <input type="checkbox" id="check-conner-up-rigth"/>
+        Esquina superior derecha
+      </span>
+      <span>
+        <input type="checkbox" id="check-conner-up-left"/>
+        Esquina superior izquierda
+      </span>
+      <span>
+        <input type="checkbox" id="check-conner-down-rigth"/>
+        Esquina inferior derecha
+      </span>
+      <span>
+        <input type="checkbox" id="check-conner-down-left"/>
+        Esquina inferior izquierda
+      </span>
+      <span>
+        <input type="checkbox" id="check-cross"/>
+        Cruz
+      </span>
+    </p>
+    <p>
+      Tamaño del lienzo:
+      <br/>
+      <input type="text" id="txt_size"/>
+    </p>
+    <p>
+      Cuantas lineas quieres:
+      <br />
+      <input type="text" id="txt_number_lines"/>
+      <div class="row">
+        <input type="button" id="button_draw" value="Dibujar">
+        <input type="button" id="button_clean" value="Limpiar Dibujo">
+        <a id="button_draw_free" href = "drawfree.html"> Hacer dibujo libre </a>
+      </div>
     </p>
     <p>Así queda tu dibujo: </p>
     <canvas id="lienzo"></canvas>
