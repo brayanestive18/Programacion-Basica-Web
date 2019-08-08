@@ -2,13 +2,20 @@
 <html lang="es" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Dibujo Libre copn el teclado</title>
+    <title>Dibujo Libre con el teclado</title>
   </head>
   <body>
     <h1>DIBUJO LIBRE</h1>
+    <p>
+      Tamaño del lienzo:
+      <br/>
+      <input type="text" id="txt_size_free"/>
+      <input type="button" id="button_change_size" value="Cambiar Tamaño">
+    </p>
+    <br/>
     <canvas id="lienzo_free" width="300" height="300"></canvas>
+    <br/>
     <a id="button_draw_line" href = "../DOM/dom.html"> Dibujar lineas</a>
-
-    <script type="text/javascript" src="drawfree.js"></script>
+    <script type="module" src="drawfree.mjs"></script>
   </body>
 </html>
