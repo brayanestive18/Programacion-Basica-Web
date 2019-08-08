@@ -28,6 +28,5 @@ function drawWithKey(key)
 
     default:
       console.log("Key?");
-
   }
 }
