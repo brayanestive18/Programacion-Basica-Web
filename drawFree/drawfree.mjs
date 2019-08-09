@@ -54,22 +54,22 @@ function drawWithKey(key)
   {
     switch (key.keyCode) {
       case keys.LEFT:
-        draw.line(line_color, x, y, x - speed, y, size_line_free);
+        draw.line(line_color, x, y, x - speed, y, width_line);
         x = x - speed;
         break;
 
       case keys.UP:
-        draw.line(line_color, x, y - speed, x, y, size_line_free);
+        draw.line(line_color, x, y - speed, x, y, width_line);
         y = y - speed;
         break;
 
       case keys.RIGHT:
-        draw.line(line_color, x, y, x + speed, y, size_line_free);
+        draw.line(line_color, x, y, x + speed, y, width_line);
         x = x + speed;
         break;
 
       case keys.DOWN:
-        draw.line(line_color, x, y + speed, x, y, size_line_free);
+        draw.line(line_color, x, y + speed, x, y, width_line);
         y = y + speed;
         break;
 
