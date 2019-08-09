@@ -28,66 +28,6 @@ btn_clean.addEventListener("click", cleanClick);
 d.width = 300;
 d.height  = 300;
 
-<<<<<<< HEAD:DOM/dom.js
-function drawLine(color_line, xi, yi, xf, yf, lineWidth)
-{
-  lienzo.lineWidth = lineWidth;
-  lienzo.beginPath();
-  lienzo.strokeStyle = color_line;
-  lienzo.moveTo(xi, yi);
-  lienzo.lineTo(xf, yf);
-  lienzo.stroke();
-  lienzo.closePath();
-}
-
-function drawEgde()
-{
-  lienzo.beginPath();
-  lienzo.strokeStyle = "#000000"
-  lienzo.lineWidth = 8;
-  lienzo.rect(1, 1, d.width - 1 , d.height - 1);
-  lienzo.stroke();
-  lienzo.closePath();
-}
-
-function colorRound()
-{
-  var max = 255;
-  var r = Math.floor(Math.random() * max);
-  var g = Math.floor(Math.random() * max);
-  var b = Math.floor(Math.random() * max);
-  return 'rgb(' + r + ',' + g + ',' + b + ')';
-}
-
-function drawCross(step, width_Lienzo)
-{
-  var size_cross = width_Lienzo / 2;
-  var x = size_cross;
-  var x1 = size_cross;
-  step = step / 2;
-  var color_cross = colorRound();
-  for(var y = 0; y <= size_cross; y += step)
-  {
-    x += step;
-    x1 -= step;
-    drawLine(color_cross, size_cross, y, x, size_cross, 2);
-    drawLine(color_cross, size_cross, y, x1, size_cross, 2);
-    color_cross = color_cross = colorRound();
-  }
-  x = width_Lienzo / 2;
-  x1 = width_Lienzo / 2;
-  for(var y = width_Lienzo; y >= size_cross; y -= step)
-  {
-    x += step;
-    x1 -= step;
-    color_cross = colorRound();
-    drawLine(color_cross, size_cross, y, x, size_cross, 2);
-    drawLine(color_cross, size_cross, y, x1, size_cross, 2);
-  }
-}
-
-=======
->>>>>>> 9471c25a19a41cc5e77a5b1ecba4e8d3977a0f93:DOM/dom.mjs
 function drawClick()
 {
   var widthLienzo = parseInt(size_lienzo.value);
