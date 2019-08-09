@@ -38,14 +38,14 @@ export default class MyDraw
     var x = size_cross;
     var x1 = size_cross;
     step = step / 2;
-    var color_cross = colorRound();
+    var color_cross = this.colorRound();
     for(var y = 0; y <= size_cross; y += step)
     {
       x += step;
       x1 -= step;
-      drawLine(color_cross, size_cross, y, x, size_cross, 2);
-      drawLine(color_cross, size_cross, y, x1, size_cross, 2);
-      color_cross = color_cross = colorRound();
+      this.line(color_cross, size_cross, y, x, size_cross, 2);
+      this.line(color_cross, size_cross, y, x1, size_cross, 2);
+      color_cross = color_cross = this.colorRound();
     }
     x = width_Lienzo / 2;
     x1 = width_Lienzo / 2;
@@ -53,17 +53,18 @@ export default class MyDraw
     {
       x += step;
       x1 -= step;
-      color_cross = colorRound();
-      drawLine(color_cross, size_cross, y, x, size_cross, 2);
-      drawLine(color_cross, size_cross, y, x1, size_cross, 2);
+      color_cross = this.colorRound();
+      this.line(color_cross, size_cross, y, x, size_cross, 2);
+      this.line(color_cross, size_cross, y, x1, size_cross, 2);
     }
+  }
 
-    colorRound()
-    {
-      var max = 255;
-      var r = Math.floor(Math.random() * max);
-      var g = Math.floor(Math.random() * max);
-      var b = Math.floor(Math.random() * max);
-      return 'rgb(' + r + ',' + g + ',' + b + ')';
-    }
+  colorRound()
+  {
+    var max = 255;
+    var r = Math.floor(Math.random() * max);
+    var g = Math.floor(Math.random() * max);
+    var b = Math.floor(Math.random() * max);
+    return 'rgb(' + r + ',' + g + ',' + b + ')';
+  }
 }
