@@ -25,6 +25,16 @@ export default class MyDraw
     this.lienzo.closePath();
   }
 
+  rectangule(xi, yi, xf, yf, color_rec)
+  {
+    this.lienzo.beginPath();
+    this.lienzo.strokeStyle = color_rec;
+    this.lienzo.lineWidth = 5;
+    this.lienzo.rect(xi, yi, 1, 1);
+    this.lienzo.stroke();
+    this.lienzo.closePath();
+  }
+
   clean(doc)
   {
     this.lienzo.clearRect(0, 0, doc.width, doc.height);

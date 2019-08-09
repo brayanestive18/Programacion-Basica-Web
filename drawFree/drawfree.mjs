@@ -1,12 +1,19 @@
 import MyDraw from "../DOM/draw.mjs";
+
 var doc = document.getElementById("lienzo_free");
 var papel = doc.getContext("2d");
 var size_papel = document.getElementById("txt_size_free");
 var button_change_size = document.getElementById("button_change_size");
 var draw = new MyDraw(papel);
+var x = parseInt(doc.height / 2);
+var y = parseInt(doc.height / 2);
+let flag = 0;
+var speed = 5;
+var line_color = "blue";
+var width_line = 3;
 
-document.addEventListener("click", changeSize)
-document.addEventListener("keyup", drawWithKey);
+button_change_size.addEventListener("click", changeSize)
+document.addEventListener("keydown", drawWithKey);
 draw.egde(doc);
 
 var keys =
@@ -26,30 +33,49 @@ function changeSize()
     doc.height = size;
     draw.egde(doc);
   }
+  x = parseInt(size / 2);
+  y = parseInt(size / 2);
+  line_color = document.getElementById("color_linea_free").value;
+  speed = parseInt(document.getElementById("step_line_free").value);
+  width_line = parseInt(document.getElementById("size_line_free").value);
+  starDraw();
+}
+
+function starDraw()
+{
+  flag = 1;
+  draw.rectangule(x-1, y-1, "black");
+  //draw.line("black", x, y - 1, x, y, 8);
 }
 
 function drawWithKey(key)
 {
-  switch (key.keyCode) {
-    case keys.LEFT:
-      console.log("LEFT!");
-      draw.line("Red", 150, 200, 100, 50, 3);
-      break;
+  if(flag == 1)
+  {
+    switch (key.keyCode) {
+      case keys.LEFT:
+        draw.line(line_color, x, y, x - speed, y, size_line_free);
+        x = x - speed;
+        break;
 
-    case keys.UP:
-      console.log("UP!");
-      break;
+      case keys.UP:
+        draw.line(line_color, x, y - speed, x, y, size_line_free);
+        y = y - speed;
+        break;
 
-    case keys.RIGHT:
-      console.log("RIGHT!");
-      break;
+      case keys.RIGHT:
+        draw.line(line_color, x, y, x + speed, y, size_line_free);
+        x = x + speed;
+        break;
 
-    case keys.DOWN:
-      console.log("DOWN!");
-      break;
+      case keys.DOWN:
+        draw.line(line_color, x, y + speed, x, y, size_line_free);
+        y = y + speed;
+        break;
 
-    default:
-      console.log("Key?");
+      default:
+        console.log("Key?");
+    }
   }
   draw.egde(doc);
 }
