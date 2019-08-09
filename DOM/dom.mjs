@@ -1,3 +1,5 @@
+import MyDraw from "./draw.mjs";
+
 var d = document.getElementById("lienzo");
 var lienzo = d.getContext("2d");
 var num_Lines_1 = document.getElementById("txt_number_lines_1");
@@ -19,11 +21,14 @@ var option_down_l = document.getElementById("check-conner-down-left");
 var option_cross = document.getElementById("check-cross");
 var size_lienzo = document.getElementById("txt_size");
 
+var draw = new MyDraw(lienzo);
+
 btn_draw.addEventListener("click", drawClick);
 btn_clean.addEventListener("click", cleanClick);
 d.width = 300;
 d.height  = 300;
 
+<<<<<<< HEAD:DOM/dom.js
 function drawLine(color_line, xi, yi, xf, yf, lineWidth)
 {
   lienzo.lineWidth = lineWidth;
@@ -81,6 +86,8 @@ function drawCross(step, width_Lienzo)
   }
 }
 
+=======
+>>>>>>> 9471c25a19a41cc5e77a5b1ecba4e8d3977a0f93:DOM/dom.mjs
 function drawClick()
 {
   var widthLienzo = parseInt(size_lienzo.value);
@@ -96,7 +103,7 @@ function drawClick()
       for(var y = parting; y <= widthLienzo; y += parting)
       {
         x += parting;
-        drawLine(color_line_1.value, x, 0, widthLienzo, y, 2);
+        draw.line(color_line_1.value, x, 0, widthLienzo, y, 2);
       }
     }
 
@@ -110,7 +117,7 @@ function drawClick()
       var x = 0;
       for(var y = widthLienzo; y >= 0; y -= parting)
       {
-        drawLine(color_line_2.value, 0, y, x, 0, 2);
+        draw.line(color_line_2.value, 0, y, x, 0, 2);
         x +=parting;
       }
     }
@@ -124,7 +131,7 @@ function drawClick()
       var x = 0;
       for(var y = widthLienzo; y >= 0; y -= parting)
       {
-        drawLine(color_line_3.value, widthLienzo, x, y, widthLienzo, 2);
+        draw.line(color_line_3.value, widthLienzo, x, y, widthLienzo, 2);
         x +=parting;
       }
     }
@@ -139,7 +146,7 @@ function drawClick()
       for(var y = parting; y <= widthLienzo; y += parting)
       {
         x += parting;
-        drawLine(color_line_4.value, 0, y, x, widthLienzo, 2);
+        draw.line(color_line_4.value, 0, y, x, widthLienzo, 2);
       }
     }
   }
@@ -149,42 +156,16 @@ function drawClick()
     var parting = widthLienzo / num_lines;
     if(num_lines >= 0)
     {
-      drawCross(parting, widthLienzo);
+      draw.cross(parting, widthLienzo);
     }
   }
-  drawEgde();
+  draw.egde(d);
 }
 
 function cleanClick()
 {
-  lienzo.clearRect(0, 0, d.width, d.height);
-  d.width = 300;
-  d.height  = 300;
-  drawEgde();
+  draw.clean(d);
+  draw.egde(d);
 }
 
-/*
-var widthLienzo = d.width;
-var step = 5;
-var step1 = 5;
-var parting = widthLienzo / step1;
-var x = 0;
-
-for(var y = parting; y <= widthLienzo; y+=parting)
-{
-  x += parting;
-  drawLine("red", 0, y, x, widthLienzo, 2);
-  drawLine("yellow", x, 0, widthLienzo, y, 2);
-}
-
-x = 0
-for(var y = widthLienzo; y >= 0; y-=step)
-{
-  drawLine("blue", widthLienzo, x, y, widthLienzo, 2);
-  drawLine("green", 0, y, x, 0, 2);
-  x +=step;
-}
-*/
-
-
-drawEgde();
+draw.egde(d);
