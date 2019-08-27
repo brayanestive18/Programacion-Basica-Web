@@ -26,86 +26,76 @@ var draw = new MyDraw(lienzo);
 btn_draw.addEventListener("click", drawClick);
 btn_clean.addEventListener("click", cleanClick);
 d.width = 300;
-d.height  = 300;
+d.height = 300;
 
-function drawClick()
-{
-  var widthLienzo = parseInt(size_lienzo.value);
-  d.width = widthLienzo;
-  d.height  = widthLienzo;
-  if (option_up_r.checked)
-  {
-    var num_lines = parseInt(num_Lines_1.value);
-    var parting = widthLienzo / num_lines;
-    if(num_lines >= 0)
-    {
-      var x = 0;
-      for(var y = parting; y <= widthLienzo; y += parting)
-      {
-        x += parting;
-        draw.line(color_line_1.value, x, 0, widthLienzo, y, 2);
-      }
+function drawClick() {
+    var widthLienzo = parseInt(size_lienzo.value);
+    d.width = widthLienzo;
+    d.height = widthLienzo;
+    if (option_up_r.checked) {
+        var num_lines = parseInt(num_Lines_1.value);
+        var parting = widthLienzo / num_lines;
+        if (num_lines >= 0) {
+            var x = 0;
+            for (var y = parting; y <= widthLienzo; y += parting) {
+                x += parting;
+                draw.line(color_line_1.value, x, 0, widthLienzo, y, 2);
+            }
+        }
     }
-
-  }
-  if (option_up_l.checked)
-  {
-    var num_lines = parseInt(num_Lines_2.value);
-    var parting = widthLienzo / num_lines;
-    if(num_lines >= 0)
-    {
-      var x = 0;
-      for(var y = widthLienzo; y >= 0; y -= parting)
-      {
-        draw.line(color_line_2.value, 0, y, x, 0, 2);
-        x +=parting;
-      }
+    if (option_up_l.checked) {
+        var num_lines = parseInt(num_Lines_2.value);
+        var parting = widthLienzo / num_lines;
+        if (num_lines >= 0) {
+            var x = 0;
+            for (var y = widthLienzo; y >= 0; y -= parting) {
+                draw.line(color_line_2.value, 0, y, x, 0, 2);
+                x += parting;
+            }
+        }
     }
-  }
-  if (option_down_r.checked)
-  {
-    var num_lines = parseInt(num_Lines_3.value);
-    var parting = widthLienzo / num_lines;
-    if(num_lines >= 0)
-    {
-      var x = 0;
-      for(var y = widthLienzo; y >= 0; y -= parting)
-      {
-        draw.line(color_line_3.value, widthLienzo, x, y, widthLienzo, 2);
-        x +=parting;
-      }
+    if (option_down_r.checked) {
+        var num_lines = parseInt(num_Lines_3.value);
+        var parting = widthLienzo / num_lines;
+        if (num_lines >= 0) {
+            var x = 0;
+            for (var y = widthLienzo; y >= 0; y -= parting) {
+                draw.line(
+                    color_line_3.value,
+                    widthLienzo,
+                    x,
+                    y,
+                    widthLienzo,
+                    2
+                );
+                x += parting;
+            }
+        }
     }
-  }
-  if (option_down_l.checked)
-  {
-    var num_lines = parseInt(num_Lines_4.value);
-    var parting = widthLienzo / num_lines;
-    if(num_lines >= 0)
-    {
-      var x = 0;
-      for(var y = parting; y <= widthLienzo; y += parting)
-      {
-        x += parting;
-        draw.line(color_line_4.value, 0, y, x, widthLienzo, 2);
-      }
+    if (option_down_l.checked) {
+        var num_lines = parseInt(num_Lines_4.value);
+        var parting = widthLienzo / num_lines;
+        if (num_lines >= 0) {
+            var x = 0;
+            for (var y = parting; y <= widthLienzo; y += parting) {
+                x += parting;
+                draw.line(color_line_4.value, 0, y, x, widthLienzo, 2);
+            }
+        }
     }
-  }
-  if (option_cross.checked)
-  {
-    var num_lines = parseInt(num_Lines_5.value);
-    var parting = widthLienzo / num_lines;
-    if(num_lines >= 0)
-    {
-      draw.cross(parting, widthLienzo);
+    if (option_cross.checked) {
+        var num_lines = parseInt(num_Lines_5.value);
+        var parting = widthLienzo / num_lines;
+        if (num_lines >= 0) {
+            draw.cross(parting, widthLienzo);
+        }
     }
-  }
-  draw.egde(d);
+    draw.egde(d);
 }
 
-function cleanClick()
-{
-  draw.clean(d);
-  draw.egde(d);
+function cleanClick() {
+    draw.clean(d);
+    draw.egde(d);
 }
 
 draw.egde(d);
