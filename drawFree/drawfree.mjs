@@ -11,8 +11,9 @@ let flag = 0;
 var speed = 5;
 var line_color = "blue";
 var width_line = 3;
+var size = 0;
 
-button_change_size.addEventListener("click", changeSize)
+button_change_size.addEventListener("click", changeSize);
 document.addEventListener("keydown", drawWithKey);
 draw.egde(doc);
 
@@ -26,7 +27,7 @@ var keys =
 
 function changeSize()
 {
-  var size = parseInt(size_papel.value);
+  size = parseInt(size_papel.value);
   if (size > 0)
   {
     doc.width = size;
@@ -55,22 +56,30 @@ function drawWithKey(key)
     switch (key.keyCode) {
       case keys.LEFT:
         draw.line(line_color, x, y, x - speed, y, width_line);
-        x = x - speed;
+        if (x > 0) {
+          x = x - speed;
+        }
         break;
 
       case keys.UP:
         draw.line(line_color, x, y - speed, x, y, width_line);
-        y = y - speed;
+        if (y > 0) {
+          y = y - speed;
+        }
         break;
 
       case keys.RIGHT:
         draw.line(line_color, x, y, x + speed, y, width_line);
-        x = x + speed;
+        if (x < size) {
+          x = x + speed;
+        }
         break;
 
       case keys.DOWN:
         draw.line(line_color, x, y + speed, x, y, width_line);
-        y = y + speed;
+        if (y < size) {
+          y = y + speed;
+        }
         break;
 
       default:
